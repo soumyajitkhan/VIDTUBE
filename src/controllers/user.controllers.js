@@ -82,10 +82,10 @@ const registerUser = asyncHandler(async (req, res) => {
         console.log("User Creation failed")
 
         if (avatar) {
-            await deleteFromCloudinary(avatar,Public_id)
+            await deleteFromCloudinary(avatar.public_id)
         }
         if (coverImage) {
-            await deleteFromCloudinary(coverImage,Public_id)
+            await deleteFromCloudinary(coverImage.public_id)
         }
             throw new ApiError(500, "Something went wrong while registering a user and images were deleted")
 
